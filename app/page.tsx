@@ -171,7 +171,7 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             className="relative z-[20] text-center px-6"
           >
-            <span className="text-red-600 font-bold tracking-[0.8em] text-xs md:text-sm uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
+            <span className="text-red-600 font-bold tracking-[0.8em] text-[10px] md:text-xs uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
             <div className="flex flex-col items-center mb-8 gap-0">
               <StretchText 
                 text="PREMIUM" 
@@ -184,13 +184,13 @@ export default function Home() {
                 style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.75 }}
               />
             </div>
-            <p className="text-white/60 text-base md:text-lg font-medium max-w-2xl mx-auto mb-12 tracking-[0.1em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
+            <p className="text-white/60 text-sm md:text-base font-medium max-w-xl mx-auto mb-10 tracking-[0.1em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
               Authentic Middle Eastern Craftsmanship since 1998. <br /> Experiencing the heritage of carved perfection.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="btn-premium bg-red-600 text-white px-12 py-6 rounded-full font-bold text-xs md:text-sm tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
+                  <button className="btn-premium bg-red-600 text-white px-10 py-5 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
                     <span className="relative z-10">EXPLORE MENU</span>
                     <motion.div className="absolute inset-0 bg-white z-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
@@ -199,7 +199,7 @@ export default function Home() {
               <Magnetic>
                 <button 
                   onClick={() => scrollToSection(5)}
-                  className="px-12 py-6 rounded-full font-bold text-xs md:text-sm tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
+                  className="px-10 py-5 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
                 >
                   SIGNATURES
                 </button>
@@ -230,10 +230,10 @@ export default function Home() {
                transition={{ duration: 1 }}
             >
               <h2 className="text-red-600 font-black tracking-[0.5em] text-[10px] uppercase mb-8">OUR MISSION</h2>
-              <p className="text-3xl md:text-6xl font-black tracking-tighter leading-none mb-10" style={{ fontFamily: 'var(--font-outfit)' }}>
+              <p className="text-2xl md:text-5xl font-black tracking-tighter leading-none mb-10" style={{ fontFamily: 'var(--font-outfit)' }}>
                 TO SERVE THE <span className="text-red-600">BOLDEST</span> FLAVORS WITH UNCOMPROMISING <span className="text-red-600">QUALITY.</span>
               </p>
-              <p className="text-black/40 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+               <p className="text-black/40 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
                 We believe shawarma is an art. Since 1998, we've remained true to traditional methods while innovating for the modern palate.
               </p>
             </motion.div>
@@ -264,8 +264,8 @@ export default function Home() {
                   <a href={loc.map} target="_blank" rel="noopener noreferrer">
                     <Tilt className="p-6 md:p-8 border border-black/5 bg-black/5 rounded-[30px] hover:bg-black hover:text-white transition-all duration-500 group">
                       <MapPin className="mx-auto mb-4 text-red-600 group-hover:scale-110 transition-transform" size={24} />
-                       <h3 className="text-base md:text-xl font-black uppercase tracking-tight line-clamp-1">{loc.name}</h3>
-                      <p className="mt-2 text-xs tracking-[0.2em] opacity-60 uppercase transition-opacity group-hover:opacity-100 font-bold">Open 24/7</p>
+                       <h3 className="text-sm md:text-lg font-black uppercase tracking-tight line-clamp-1">{loc.name}</h3>
+                      <p className="mt-2 text-[10px] tracking-[0.2em] opacity-60 uppercase transition-opacity group-hover:opacity-100 font-bold">Open 24/7</p>
                     </Tilt>
                   </a>
                 </Magnetic>
@@ -338,8 +338,8 @@ export default function Home() {
             <div className="flex justify-center">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="group flex items-center gap-4 text-black font-black tracking-[0.2em] text-sm uppercase px-12 py-6 border-2 border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-500 shadow-xl">
-                    EXPLORE FULL MENU <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                  <button className="group flex items-center gap-4 text-black font-black tracking-[0.2em] text-xs md:text-sm uppercase px-10 py-5 border-2 border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-500 shadow-xl">
+                    EXPLORE FULL MENU <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                   </button>
                 </Link>
               </Magnetic>

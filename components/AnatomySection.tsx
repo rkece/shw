@@ -95,13 +95,13 @@ function Layer({ layer, index, total, progress }: { layer: any; index: number; t
         <Image src={layer.img} alt={layer.title} fill className="object-cover" />
         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
         
-        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             <StretchText 
               text={layer.title} 
-              className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight"
+              className="text-white text-2xl md:text-3xl font-black uppercase tracking-tight"
               style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.9 }}
             />
-            <p className="text-white/80 text-sm md:text-lg font-medium mt-4 leading-relaxed">{layer.detail}</p>
+            <p className="text-white/80 text-xs md:text-sm font-medium mt-3 leading-relaxed">{layer.detail}</p>
         </div>
       </div>
       
@@ -116,10 +116,10 @@ function Layer({ layer, index, total, progress }: { layer: any; index: number; t
           <div className="mt-4">
               <StretchText 
                 text={layer.title} 
-                className="text-red-600 text-sm md:text-lg font-black uppercase tracking-tight"
+                className="text-red-600 text-xs md:text-sm font-black uppercase tracking-tight"
                 style={{ fontFamily: 'var(--font-staatliches)' }}
               />
-              <p className="text-black/60 text-[10px] md:text-xs font-bold uppercase mt-1 tracking-widest">Component {total - index}</p>
+              <p className="text-black/60 text-[8px] md:text-[10px] font-bold uppercase mt-1 tracking-widest">Component {total - index}</p>
           </div>
       </motion.div>
     </motion.div>
