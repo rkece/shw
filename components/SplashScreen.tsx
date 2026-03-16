@@ -47,7 +47,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     >
                         <h1
                             className="text-white text-5xl font-bold tracking-widest uppercase"
-                            style={{ fontFamily: 'Oswald, sans-serif', letterSpacing: '0.15em' }}
+                            style={{ fontFamily: 'var(--font-outfit), sans-serif', letterSpacing: '0.15em' }}
                         >
                             Shawarma Inn
                         </h1>
