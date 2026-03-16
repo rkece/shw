@@ -172,7 +172,7 @@ export default function Home() {
         {/* SECTION 2: KITCHENS */}
         <section className="slide-panel absolute inset-0 z-[20] flex flex-col items-center justify-center bg-[#0A0A0A]">
           <div className="max-w-7xl w-full px-6 text-center">
-            <h2 className="text-5xl md:text-8xl font-bold mb-20 tracking-tighter" style={{ fontFamily: 'Oswald' }}>THE KITCHENS</h2>
+            <h2 className="text-5xl md:text-8xl font-bold mb-20 tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>THE KITCHENS</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {['Mogappair', 'Anna Nagar', 'Nungambakkam'].map((loc, i) => (
                 <Magnetic key={i}>
@@ -190,7 +190,7 @@ export default function Home() {
         {/* SECTION 3: SIGNATURES */}
         <section className="slide-panel absolute inset-0 z-[30] flex flex-col items-center justify-center bg-[#0A0A0A]">
           <div className="max-w-7xl w-full px-6">
-            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter text-center" style={{ fontFamily: 'Oswald' }}>SIGNATURES</h2>
+            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter text-center" style={{ fontFamily: 'var(--font-outfit)' }}>SIGNATURES</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
                 { name: 'Rumali Special', img: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600' },
@@ -215,7 +215,7 @@ export default function Home() {
           <div className="text-center px-6">
             <div className="mb-12">
               <Users className="mx-auto text-red-600 mb-6 drop-shadow-[0_0_15px_rgba(204,26,26,0.5)]" size={80} />
-              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter uppercase leading-none" style={{ fontFamily: 'Oswald' }}>
+              <h2 className="text-6xl md:text-9xl font-bold tracking-tighter uppercase leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>
                 TRUSTED BY <br /> <span className="text-red-600 italic">THOUSANDS.</span>
               </h2>
             </div>
@@ -229,7 +229,7 @@ export default function Home() {
         {/* SECTION 5: CONTACT */}
         <section className="slide-panel absolute inset-0 z-[50] flex flex-col bg-[#0A0A0A]">
           <div className="flex-1 flex flex-col items-center justify-center px-6">
-            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter" style={{ fontFamily: 'Oswald' }}>LET'S CONNECT</h2>
+            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>LET'S CONNECT</h2>
             <div className="flex flex-col md:flex-row gap-8">
               <Magnetic>
                 <button className="px-12 py-6 border border-white/10 rounded-full font-bold tracking-widest hover:bg-white hover:text-black transition-all bg-white/5">+91 98765 43210</button>

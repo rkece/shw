@@ -64,7 +64,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 <Image src="/logo.png" alt="S" width={24} height={24} className="invert brightness-0" />
                             </div>
                             <div>
-                                <h1 className="text-slate-900 font-bold tracking-tight text-lg leading-tight uppercase" style={{ fontFamily: 'Oswald' }}>
+                                <h1 className="text-slate-900 font-bold tracking-tight text-lg leading-tight uppercase" style={{ fontFamily: 'var(--font-outfit)' }}>
                                     SHAWARMA <span className="text-red-600">INN</span>
                                 </h1>
                                 <p className="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase">Control Center</p>
