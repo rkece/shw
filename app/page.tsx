@@ -175,16 +175,16 @@ export default function Home() {
             <div className="flex flex-col items-center mb-8 gap-0">
               <StretchText 
                 text="PREMIUM" 
-                className="text-7xl md:text-[10vw] font-black tracking-tight text-white transition-all hover:text-red-600" 
-                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.75 }}
+                className="text-7xl md:text-[12vw] font-black tracking-tight text-white transition-all hover:text-red-600" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.7 }}
               />
               <StretchText 
                 text="FLAVORS" 
-                className="text-7xl md:text-[10vw] font-black tracking-tight text-red-600 italic transition-all hover:text-white" 
-                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.75 }}
+                className="text-7xl md:text-[12vw] font-black tracking-tight text-red-600 italic transition-all hover:text-white mt-[-0.1em]" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.7 }}
               />
             </div>
-            <p className="text-white/60 text-sm md:text-base font-medium max-w-xl mx-auto mb-10 tracking-[0.1em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
+            <p className="text-white/80 text-xs md:text-sm font-bold max-w-2xl mx-auto mb-12 tracking-[0.2em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
               Authentic Middle Eastern Craftsmanship since 1998. <br /> Experiencing the heritage of carved perfection.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6">
