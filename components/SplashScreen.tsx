@@ -26,14 +26,14 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     <motion.div
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-                        className="relative w-36 h-36"
+                        transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
+                        className="relative w-24 h-24 bg-white rounded-full p-4 shadow-[0_0_50px_rgba(255,255,255,0.1)]"
                     >
                         <Image
                             src="/logo.png"
                             alt="Shawarma Inn Logo"
                             fill
-                            className="object-contain drop-shadow-2xl"
+                            className="object-contain p-4"
                             priority
                         />
                     </motion.div>
@@ -46,10 +46,10 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                         className="text-center"
                     >
                         <h1
-                            className="text-white text-5xl font-bold tracking-widest uppercase"
-                            style={{ fontFamily: 'var(--font-outfit), sans-serif', letterSpacing: '0.15em' }}
+                            className="text-white text-4xl md:text-6xl font-black tracking-[0.2em] uppercase"
+                            style={{ fontFamily: 'var(--font-outfit), sans-serif' }}
                         >
-                            Shawarma Inn
+                            SHAWARMA <span className="text-red-600">INN</span>
                         </h1>
                         <motion.p
                             initial={{ opacity: 0 }}

@@ -34,15 +34,15 @@ export default function Navbar() {
             {/* Logo - Minimalist approach as requested (Removed text name) */}
             <Link href="/" className="nav-logo-container group">
                 <motion.div
-                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="relative w-14 h-14 flex items-center justify-center"
+                    className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-1"
                 >
                     <Image src="/logo.png" alt="S" fill className="object-contain" />
                 </motion.div>
                 <div className="flex flex-col ml-1">
-                    <span className="text-xs text-red-600 tracking-[0.5em] font-black uppercase leading-none">INN</span>
-                    <span className="text-[8px] text-white/40 tracking-[0.2em] uppercase font-bold mt-1.5">EST. 1998</span>
+                    <span className="text-[10px] text-red-600 tracking-[0.4em] font-black uppercase leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>SHAWARMA INN</span>
+                    <span className="text-[7px] text-red-600/40 tracking-[0.2em] uppercase font-bold mt-1">SINCE 1998</span>
                 </div>
             </Link>
 
@@ -52,11 +52,12 @@ export default function Navbar() {
                     <Link
                         key={link.href}
                         href={link.href}
-                        className={`text-xs font-bold tracking-[0.3em] transition-all duration-500 relative group ${pathname === link.href ? 'text-red-600' : 'text-white/40 hover:text-white'
+                        className={`text-[10px] font-black tracking-[0.3em] transition-all duration-500 relative group ${pathname === link.href ? 'text-red-600' : 'text-white/40 hover:text-white'
                             }`}
+                        style={{ fontFamily: 'var(--font-outfit)' }}
                     >
                         {link.label}
-                        <span className={`absolute -bottom-2 left-0 h-[1px] bg-red-600 transition-all duration-500 ${pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                        <span className={`absolute -bottom-2 left-0 h-[1.5px] bg-red-600 transition-all duration-500 ${pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                     </Link>
                 ))}
             </nav>
