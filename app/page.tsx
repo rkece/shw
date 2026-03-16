@@ -171,26 +171,26 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             className="relative z-[20] text-center px-6"
           >
-            <span className="text-red-600 font-bold tracking-[0.8em] text-[10px] md:text-xs uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
+            <span className="text-red-600 font-bold tracking-[0.8em] text-[10px] md:text-[11px] uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
             <div className="flex flex-col items-center mb-8 gap-0">
               <StretchText 
                 text="PREMIUM" 
-                className="text-7xl md:text-[12vw] font-black tracking-tight text-white transition-all hover:text-red-600" 
-                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.7 }}
+                className="text-6xl md:text-[9vw] font-black tracking-tighter text-white transition-all hover:text-red-600" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.8 }}
               />
               <StretchText 
                 text="FLAVORS" 
-                className="text-7xl md:text-[12vw] font-black tracking-tight text-red-600 italic transition-all hover:text-white mt-[-0.1em]" 
-                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.7 }}
+                className="text-6xl md:text-[9vw] font-black tracking-tighter text-red-600 italic transition-all hover:text-white mt-[-0.1em]" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.8 }}
               />
             </div>
-            <p className="text-white/80 text-xs md:text-sm font-bold max-w-2xl mx-auto mb-12 tracking-[0.2em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
+            <p className="text-white/60 text-[10px] md:text-sm font-medium max-w-md mx-auto mb-10 tracking-[0.15em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
               Authentic Middle Eastern Craftsmanship since 1998. <br /> Experiencing the heritage of carved perfection.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="btn-premium bg-red-600 text-white px-10 py-5 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
+                  <button className="btn-premium bg-red-600 text-white px-8 py-4 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
                     <span className="relative z-10">EXPLORE MENU</span>
                     <motion.div className="absolute inset-0 bg-white z-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
@@ -199,7 +199,7 @@ export default function Home() {
               <Magnetic>
                 <button 
                   onClick={() => scrollToSection(5)}
-                  className="px-10 py-5 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
+                  className="px-8 py-4 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
                 >
                   SIGNATURES
                 </button>
