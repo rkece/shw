@@ -49,7 +49,7 @@ export default function MenuItemDetail() {
     };
 
     if (loading) return (
-        <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+        <div className="min-h-screen bg-white flex items-center justify-center">
             <div className="w-12 h-12 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
         </div>
     );
@@ -108,9 +108,9 @@ export default function MenuItemDetail() {
                             <div className="mb-2">
                                 <span className="text-red-600 text-xs font-bold tracking-[0.2em] uppercase">{item.category}</span>
                             </div>
-                            <h1 className="text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Oswald' }}>
-                                {item.name}
-                            </h1>
+                             <h1 className="text-5xl font-black text-gray-900 mb-4 uppercase tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>
+                                 {item.name}
+                             </h1>
 
                             <div className="flex items-center gap-6 mb-8">
                                 <div className="flex items-center gap-1">
@@ -189,7 +189,7 @@ export default function MenuItemDetail() {
                                     onClick={() => setActiveTab(tab)}
                                     className={`text-lg font-bold capitalize transition-all relative ${activeTab === tab ? 'text-red-600' : 'text-gray-400 hover:text-gray-600'
                                         }`}
-                                    style={{ fontFamily: 'Oswald' }}
+                                    style={{ fontFamily: 'var(--font-outfit)' }}
                                 >
                                     {tab}
                                     {activeTab === tab && (

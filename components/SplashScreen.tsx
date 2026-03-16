@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import StretchText from './StretchText';
 
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
     const [phase, setPhase] = useState<'enter' | 'hold' | 'exit'>('enter');
@@ -45,19 +46,25 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="text-center"
                     >
-                        <h1
-                            className="text-white text-4xl md:text-6xl font-black tracking-[0.2em] uppercase"
-                            style={{ fontFamily: 'var(--font-outfit), sans-serif' }}
-                        >
-                            SHAWARMA <span className="text-red-600">INN</span>
-                        </h1>
+                        <div className="flex flex-col items-center">
+                            <StretchText 
+                                text="SHAWARMA" 
+                                className="text-white text-5xl md:text-7xl font-black uppercase"
+                                style={{ fontFamily: 'var(--font-bebas)', lineHeight: 0.8 }}
+                            />
+                            <StretchText 
+                                text="INN" 
+                                className="text-red-600 text-5xl md:text-7xl font-black uppercase mt-[-0.1em]"
+                                style={{ fontFamily: 'var(--font-bebas)', lineHeight: 0.8 }}
+                            />
+                        </div>
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
-                            className="text-red-500 text-sm tracking-[0.3em] uppercase mt-1"
+                            className="text-white/20 text-[8px] tracking-[1.5em] uppercase mt-4 font-black"
                         >
-                            Tempting Taste
+                            SINCE 1998
                         </motion.p>
                     </motion.div>
 

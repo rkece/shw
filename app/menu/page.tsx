@@ -60,7 +60,7 @@ export default function MenuPage() {
     };
 
     return (
-        <div className="bg-[#0A0A0A] min-h-screen text-white">
+        <div className="bg-white min-h-screen text-black">
             <Navbar />
             <CartDrawer />
 
@@ -73,16 +73,16 @@ export default function MenuPage() {
                         fill
                         className="object-cover opacity-20 filter grayscale"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                         <span className="text-red-600 text-[10px] font-bold tracking-[0.5em] uppercase mb-4 block">Crafted Flavors</span>
-                        <h1 className="text-6xl md:text-8xl font-bold mb-6" style={{ fontFamily: 'Oswald' }}>
+                        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-black" style={{ fontFamily: 'var(--font-outfit)' }}>
                             THE <span className="text-red-600">MENU</span>
                         </h1>
-                        <p className="text-white/40 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-black/40 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                             Discover the art of hand-carved perfection. Every item is a testament to our heritage spice blends.
                         </p>
                     </motion.div>
@@ -100,9 +100,9 @@ export default function MenuPage() {
                             placeholder="SEARCH FOR FLAVORS..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white/5 border border-white/10 rounded-full py-5 px-10 text-xs font-bold tracking-widest text-white placeholder:text-white/20 focus:border-red-600 transition-all outline-none text-center"
+                            className="w-full bg-black/5 border border-black/10 rounded-full py-5 px-10 text-xs font-bold tracking-widest text-black placeholder:text-black/20 focus:border-red-600 transition-all outline-none text-center"
                         />
-                        <button type="submit" className="absolute right-6 top-1/2 -translate-y-1/2 text-white/20 hover:text-red-600">
+                        <button type="submit" className="absolute right-6 top-1/2 -translate-y-1/2 text-black/20 hover:text-red-600">
                             <Search size={20} />
                         </button>
                     </form>
@@ -114,8 +114,8 @@ export default function MenuPage() {
                                 key={cat.id}
                                 onClick={() => setActiveCategory(cat.id)}
                                 className={`px-8 py-3 rounded-full text-[10px] font-bold tracking-[0.3em] transition-all duration-500 border ${activeCategory === cat.id
-                                        ? 'bg-red-600 border-red-600 text-white shadow-xl shadow-red-900/20'
-                                        : 'bg-transparent border-white/10 text-white/40 hover:border-white/30 hover:text-white'
+                                        ? 'bg-red-600 border-red-600 text-white shadow-xl shadow-red-900/10'
+                                        : 'bg-transparent border-black/10 text-black/40 hover:border-black/30 hover:text-black'
                                     }`}
                             >
                                 {cat.label}
@@ -131,16 +131,16 @@ export default function MenuPage() {
                             {Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
                         </motion.div>
                     ) : items.length === 0 ? (
-                        <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-40 border border-dashed border-white/5 rounded-[40px]">
-                            <ShoppingBag className="mx-auto text-white/10 mb-6" size={60} strokeWidth={1} />
-                            <p className="text-white/40 text-xs tracking-[0.2em] font-bold">NO FLAVORS FOUND</p>
+                        <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-40 border border-dashed border-black/10 rounded-[40px]">
+                            <ShoppingBag className="mx-auto text-black/10 mb-6" size={60} strokeWidth={1} />
+                            <p className="text-black/40 text-xs tracking-[0.2em] font-bold">NO FLAVORS FOUND</p>
                             <button onClick={() => { setActiveCategory('all'); setSearchQuery('') }} className="mt-6 text-red-600 font-bold text-sm underline underline-offset-4">RESET FILTERS</button>
                         </motion.div>
                     ) : (
                         <motion.div key="grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {items.map((item, i) => (
                                 <motion.div key={item._id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} viewport={{ once: true }}>
-                                    <FoodCard item={item} dark={true} />
+                                    <FoodCard item={item} dark={false} />
                                 </motion.div>
                             ))}
                         </motion.div>

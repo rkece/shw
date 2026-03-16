@@ -33,7 +33,7 @@ export default function SignupPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] flex flex-col md:flex-row-reverse">
+        <div className="min-h-screen bg-white flex flex-col md:flex-row-reverse">
 
             {/* Right Side (imagery) */}
             <div className="hidden md:flex md:w-1/2 relative">
@@ -43,7 +43,7 @@ export default function SignupPage() {
                     fill
                     className="object-cover opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0A0A0A]" />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-white" />
 
                 <div className="absolute bottom-20 right-20 text-right">
                     <motion.div
@@ -51,10 +51,10 @@ export default function SignupPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <h1 className="text-white text-7xl font-bold leading-tight" style={{ fontFamily: 'Oswald' }}>
+                        <h1 className="text-black text-7xl font-black leading-tight uppercase" style={{ fontFamily: 'var(--font-outfit)' }}>
                             JOIN THE <br /> <span className="text-red-600">FAMILY.</span>
                         </h1>
-                        <p className="text-white/40 mt-6 text-xl max-w-lg font-light ml-auto">
+                        <p className="text-black/40 mt-6 text-xl max-w-lg font-light ml-auto">
                             Your journey to the ultimate shawarma experience begins here. Sign up for rewards and faster checkout.
                         </p>
                     </motion.div>
@@ -64,7 +64,7 @@ export default function SignupPage() {
             {/* Left Side (form) */}
             <div className="flex-1 flex flex-col justify-center items-center px-6 relative z-10">
 
-                <Link href="/" className="absolute top-10 left-10 text-white/40 hover:text-white flex items-center gap-2 text-sm font-bold tracking-widest">
+                <Link href="/" className="absolute top-10 left-10 text-black/40 hover:text-black flex items-center gap-2 text-sm font-black tracking-widest">
                     <ChevronLeft size={16} /> BACK TO HOME
                 </Link>
 
@@ -74,18 +74,18 @@ export default function SignupPage() {
                     className="w-full max-w-md py-20"
                 >
                     <div className="mb-12">
-                        <h2 className="text-white text-5xl font-bold mb-4" style={{ fontFamily: 'Oswald' }}>CREATE ACCOUNT</h2>
-                        <p className="text-white/40">Become a member and enjoy exclusive benefits.</p>
+                        <h2 className="text-black text-5xl font-black mb-4 uppercase tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>CREATE ACCOUNT</h2>
+                        <p className="text-black/40 font-medium">Become a member and enjoy exclusive benefits.</p>
                     </div>
 
                     <form onSubmit={handleSignup} className="grid grid-cols-1 gap-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-white/50 tracking-[0.2em] uppercase">Full Name</label>
+                            <label className="text-xs font-black text-black/30 tracking-[0.2em] uppercase">Full Name</label>
                             <div className="relative">
                                 <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
                                 <input
                                     type="text" required
-                                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-white/10 focus:border-red-600 transition-all outline-none"
+                                    className="w-full bg-black/5 border border-black/10 rounded-2xl py-4 pl-12 pr-4 text-black placeholder:text-black/20 focus:border-red-600 transition-all outline-none font-medium"
                                     placeholder="John Doe"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -94,12 +94,12 @@ export default function SignupPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-white/50 tracking-[0.2em] uppercase">Email Address</label>
+                            <label className="text-xs font-black text-black/30 tracking-[0.2em] uppercase">Email Address</label>
                             <div className="relative">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
                                 <input
                                     type="email" required
-                                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-white/10 focus:border-red-600 transition-all outline-none"
+                                    className="w-full bg-black/5 border border-black/10 rounded-2xl py-4 pl-12 pr-4 text-black placeholder:text-black/20 focus:border-red-600 transition-all outline-none font-medium"
                                     placeholder="name@example.com"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -109,12 +109,12 @@ export default function SignupPage() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-white/50 tracking-[0.2em] uppercase">Phone</label>
+                                <label className="text-xs font-black text-black/30 tracking-[0.2em] uppercase">Phone</label>
                                 <div className="relative">
                                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
                                     <input
                                         type="tel" required
-                                        className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-white/10 focus:border-red-600 transition-all outline-none"
+                                        className="w-full bg-black/5 border border-black/10 rounded-2xl py-4 pl-12 pr-4 text-black placeholder:text-black/20 focus:border-red-600 transition-all outline-none font-medium"
                                         placeholder="01234 56789"
                                         value={formData.phone}
                                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -122,12 +122,12 @@ export default function SignupPage() {
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-white/50 tracking-[0.2em] uppercase">Password</label>
+                                <label className="text-xs font-black text-black/30 tracking-[0.2em] uppercase">Password</label>
                                 <div className="relative">
                                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
                                     <input
                                         type="password" required
-                                        className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-white/10 focus:border-red-600 transition-all outline-none"
+                                        className="w-full bg-black/5 border border-black/10 rounded-2xl py-4 pl-12 pr-4 text-black placeholder:text-black/20 focus:border-red-600 transition-all outline-none font-medium"
                                         placeholder="••••••••"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -148,8 +148,8 @@ export default function SignupPage() {
                         </motion.button>
                     </form>
 
-                    <p className="text-center mt-12 text-white/30 text-sm">
-                        Already a member? <Link href="/login" className="text-red-500 font-bold hover:underline">SIGN IN</Link>
+                    <p className="text-center mt-12 text-black/30 text-sm font-bold uppercase tracking-widest">
+                        Already a member? <Link href="/login" className="text-red-600 hover:underline">SIGN IN</Link>
                     </p>
                 </motion.div>
             </div>

@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ArrowRight, MapPin, Phone, Mail, Users, Star, Flame, Clock, CheckCircle2, ChevronDown, MessageSquare } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import SplashScreen from '@/components/SplashScreen';
@@ -13,12 +14,17 @@ import Magnetic from '@/components/Magnetic';
 import TextReveal from '@/components/TextReveal';
 import SoundToggle from '@/components/SoundToggle';
 import Tilt from '@/components/Tilt';
+import StretchText from '@/components/StretchText';
+import AnatomySection from '@/components/AnatomySection';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const SECTIONS = [
   { id: 'hero', title: 'HERO' },
+  { id: 'mission', title: 'MISSION' },
   { id: 'kitchens', title: 'KITCHENS' },
+  { id: 'gallery', title: 'GALLERY' },
+  { id: 'anatomy', title: 'ANATOMY' },
   { id: 'signatures', title: 'SIGNATURES' },
   { id: 'community', title: 'COMMUNITY' },
   { id: 'contact', title: 'CONTACT' }
@@ -30,6 +36,7 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [anatomyProgress, setAnatomyProgress] = useState(0);
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
@@ -37,22 +44,35 @@ export default function Home() {
       const sections = gsap.utils.toArray('.slide-panel');
 
       sections.forEach((section: any, i: number) => {
-        if (i === 0) return;
-
-        gsap.fromTo(section,
-          { yPercent: 100 },
-          {
-            yPercent: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: () => `${i * 100}vh top`,
-              end: () => `${(i + 1) * 100}vh top`,
-              scrub: true,
-              onToggle: self => self.isActive && setActiveIdx(i),
+        // Entrance animation
+        if (i !== 0) {
+          gsap.fromTo(section,
+            { yPercent: 100 },
+            {
+              yPercent: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: () => `${i * 100}vh top`,
+                end: () => `${(i + 1) * 100}vh top`,
+                scrub: true,
+              }
             }
+          );
+        }
+
+        // Dedicated active progress trigger for each slide
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: () => `${i * 100}vh top`,
+          end: () => `${(i + 1) * 100}vh top`,
+          onToggle: self => {
+            if (self.isActive) setActiveIdx(i);
+          },
+          onUpdate: (self) => {
+            if (i === 4) setAnatomyProgress(self.progress);
           }
-        );
+        });
       });
 
       ScrollTrigger.create({
@@ -75,6 +95,14 @@ export default function Home() {
 
     return () => ctx.revert();
   }, []);
+
+  const scrollToSection = (idx: number) => {
+    gsap.to(window, {
+      scrollTo: idx * window.innerHeight,
+      duration: 1.5,
+      ease: "power3.inOut"
+    });
+  };
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -105,9 +133,10 @@ export default function Home() {
 
       <div className="fixed right-10 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col gap-4">
         {SECTIONS.map((_, i) => (
-          <div
+          <button
             key={i}
-            className={`w-1 h-1 rounded-full transition-all duration-500 ${activeIdx === i ? 'bg-red-600 scale-[3] shadow-[0_0_10px_#ff0000]' : 'bg-white/20 scale-100'}`}
+            onClick={() => scrollToSection(i)}
+            className={`w-1 h-2 rounded-full transition-all duration-500 hover:bg-red-600 ${activeIdx === i ? 'bg-red-600 h-8 shadow-[0_0_10px_#ff0000]' : 'bg-white/20'}`}
           />
         ))}
       </div>
@@ -142,18 +171,26 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             className="relative z-[20] text-center px-6"
           >
-            <span className="text-red-600 font-bold tracking-[0.8em] text-xs uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-outfit)' }}>SHAWARMA INN</span>
-            <h1 className="text-7xl md:text-[10vw] font-bold tracking-tighter mb-8 text-white drop-shadow-2xl" style={{ fontFamily: 'var(--font-outfit)' }}>
-              <TextReveal text="PREMIUM" className="block" />
-              <TextReveal text="FLAVORS" className="italic text-red-600" />
-            </h1>
-            <p className="text-white/60 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 tracking-wide" style={{ fontFamily: 'var(--font-outfit)' }}>
-              Authentic Middle Eastern Craftsmanship since 1998. Experiencing the heritage of carved perfection.
+            <span className="text-red-600 font-bold tracking-[0.8em] text-xs md:text-sm uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
+            <div className="flex flex-col items-center mb-8 gap-0">
+              <StretchText 
+                text="PREMIUM" 
+                className="text-7xl md:text-[10vw] font-black tracking-tight text-white transition-all hover:text-red-600" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.75 }}
+              />
+              <StretchText 
+                text="FLAVORS" 
+                className="text-7xl md:text-[10vw] font-black tracking-tight text-red-600 italic transition-all hover:text-white" 
+                style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.75 }}
+              />
+            </div>
+            <p className="text-white/60 text-base md:text-lg font-medium max-w-2xl mx-auto mb-12 tracking-[0.1em] uppercase leading-relaxed" style={{ fontFamily: 'var(--font-space)' }}>
+              Authentic Middle Eastern Craftsmanship since 1998. <br /> Experiencing the heritage of carved perfection.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="btn-premium bg-red-600 text-white px-12 py-6 rounded-full font-bold text-xs tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
+                  <button className="btn-premium bg-red-600 text-white px-12 py-6 rounded-full font-bold text-xs md:text-sm tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
                     <span className="relative z-10">EXPLORE MENU</span>
                     <motion.div className="absolute inset-0 bg-white z-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
@@ -161,8 +198,8 @@ export default function Home() {
               </Magnetic>
               <Magnetic>
                 <button 
-                  onClick={() => document.getElementById('signatures')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-12 py-6 rounded-full font-bold text-xs tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
+                  onClick={() => scrollToSection(5)}
+                  className="px-12 py-6 rounded-full font-bold text-xs md:text-sm tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
                 >
                   SIGNATURES
                 </button>
@@ -183,8 +220,27 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </section>
+        
+        {/* SECTION 2: MISSION */}
+        <section className="slide-panel absolute inset-0 z-[15] flex flex-col items-center justify-center bg-white">
+          <div className="max-w-4xl w-full px-6 text-center text-black">
+            <motion.div
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 1 }}
+            >
+              <h2 className="text-red-600 font-black tracking-[0.5em] text-[10px] uppercase mb-8">OUR MISSION</h2>
+              <p className="text-3xl md:text-6xl font-black tracking-tighter leading-none mb-10" style={{ fontFamily: 'var(--font-outfit)' }}>
+                TO SERVE THE <span className="text-red-600">BOLDEST</span> FLAVORS WITH UNCOMPROMISING <span className="text-red-600">QUALITY.</span>
+              </p>
+              <p className="text-black/40 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+                We believe shawarma is an art. Since 1998, we've remained true to traditional methods while innovating for the modern palate.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-        {/* SECTION 2: KITCHENS */}
+        {/* SECTION 3: KITCHENS */}
         <section className="slide-panel absolute inset-0 z-[20] flex flex-col items-center justify-center bg-white">
           <div className="max-w-7xl w-full px-6 text-center text-black">
             <motion.span 
@@ -202,18 +258,14 @@ export default function Home() {
                 { name: 'Thirumullaivoyal', map: 'https://maps.google.com/?q=Shawarma+Inn+Thirumullaivoyal' },
                 { name: 'Mathur', map: 'https://maps.google.com/?q=Shawarma+Inn+Mathur' },
                 { name: 'KKD Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+KKD+Nagar' },
-                { name: 'Kodungaiyur', map: 'https://maps.google.com/?q=Shawarma+Inn+Kodungaiyur' },
-                { name: 'GKM Colony', map: 'https://maps.google.com/?q=Shawarma+Inn+GKM+Colony' },
-                { name: 'Bharathi Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+Bharathi+Nagar' },
-                { name: 'Anna Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+Anna+Nagar' },
-                { name: 'Nungambakkam', map: 'https://maps.google.com/?q=Shawarma+Inn+Nungambakkam' }
+                { name: 'Anna Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+Anna+Nagar' }
               ].map((loc, i) => (
                 <Magnetic key={i}>
                   <a href={loc.map} target="_blank" rel="noopener noreferrer">
                     <Tilt className="p-6 md:p-8 border border-black/5 bg-black/5 rounded-[30px] hover:bg-black hover:text-white transition-all duration-500 group">
                       <MapPin className="mx-auto mb-4 text-red-600 group-hover:scale-110 transition-transform" size={24} />
-                      <h3 className="text-sm md:text-base font-bold uppercase tracking-tight line-clamp-1">{loc.name}</h3>
-                      <p className="mt-2 text-[8px] tracking-[0.2em] opacity-40 uppercase transition-opacity group-hover:opacity-60">Open 24/7</p>
+                       <h3 className="text-base md:text-xl font-black uppercase tracking-tight line-clamp-1">{loc.name}</h3>
+                      <p className="mt-2 text-xs tracking-[0.2em] opacity-60 uppercase transition-opacity group-hover:opacity-100 font-bold">Open 24/7</p>
                     </Tilt>
                   </a>
                 </Magnetic>
@@ -222,8 +274,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 3: SIGNATURES */}
-        <section id="signatures" className="slide-panel absolute inset-0 z-[30] flex flex-col items-center justify-center bg-white">
+        {/* SECTION 4: GALLERY */}
+        <section className="slide-panel absolute inset-0 z-[25] flex flex-col items-center justify-center bg-white">
+          <div className="max-w-7xl w-full px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=800',
+                'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=800',
+                'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800',
+                'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800'
+              ].map((img, i) => (
+                <Tilt key={i} className="aspect-[4/5] overflow-hidden rounded-[30px] relative group">
+                  <Image src={img} alt="Gallery" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" />
+                  <div className="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </Tilt>
+              ))}
+            </div>
+            <div className="text-center mt-12">
+               <h3 className="text-black font-black tracking-[0.8em] text-[10px] uppercase">OUR CRAFT • IN EVERY DETAIL</h3>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5: ANATOMY */}
+        <section className="slide-panel absolute inset-0 z-[30] flex flex-col items-center justify-center bg-white">
+          <AnatomySection progress={anatomyProgress} />
+        </section>
+        {/* SECTION 6: SIGNATURES */}
+        <section id="signatures" className="slide-panel absolute inset-0 z-[35] flex flex-col items-center justify-center bg-white">
+
           <div className="max-w-7xl w-full px-6">
             <div className="text-center mb-16">
               <motion.span 
@@ -259,8 +338,8 @@ export default function Home() {
             <div className="flex justify-center">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="group flex items-center gap-4 text-black font-bold tracking-widest text-xs uppercase px-10 py-5 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-500">
-                    EXPLORE FULL MENU <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                  <button className="group flex items-center gap-4 text-black font-black tracking-[0.2em] text-sm uppercase px-12 py-6 border-2 border-black/10 rounded-full hover:bg-black hover:text-white transition-all duration-500 shadow-xl">
+                    EXPLORE FULL MENU <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
                   </button>
                 </Link>
               </Magnetic>
@@ -268,7 +347,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 4: COMMUNITY */}
+        {/* SECTION 7: COMMUNITY */}
         <section className="slide-panel absolute inset-0 z-[40] flex flex-col items-center justify-center bg-white">
           <div className="text-center px-6 max-w-7xl w-full">
             <div className="mb-20">
@@ -310,8 +389,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 5: CONTACT */}
-        <section className="slide-panel absolute inset-0 z-[50] flex flex-col bg-white">
+        {/* SECTION 8: CONTACT */}
+        <section className="slide-panel absolute inset-0 z-[45] flex flex-col bg-white">
           <div className="flex-1 flex flex-col items-center justify-center px-6 py-20">
             <motion.span 
               initial={{ opacity: 0 }}
@@ -338,13 +417,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-20 flex gap-6">
-              {['Instagram', 'Facebook', 'Twitter'].map(social => (
-                <Link key={social} href="#" className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/40 hover:text-red-600 transition-colors">
-                  {social}
-                </Link>
-              ))}
-            </div>
+            {/* Social media removed as requested (present in footer) */}
           </div>
           <Footer />
         </section>

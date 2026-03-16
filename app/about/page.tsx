@@ -20,7 +20,7 @@ export default function AboutPage() {
             <CartDrawer />
 
             {/* Hero */}
-            <section className="relative pt-20 pb-0 min-h-[60vh] flex items-center bg-[#0A0A0A] overflow-hidden">
+            <section className="relative pt-20 pb-0 min-h-[60vh] flex items-center bg-white overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
                         src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1920&q=80"
@@ -28,15 +28,15 @@ export default function AboutPage() {
                         fill
                         className="object-cover opacity-30"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 to-[#0A0A0A]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-white" />
                 </div>
                 <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-                        <span className="text-red-400 text-xs tracking-widest uppercase font-semibold">Our Story</span>
-                        <h1 className="text-white mt-3" style={{ fontFamily: 'Oswald', fontSize: 'clamp(42px, 8vw, 80px)', fontWeight: 700 }}>
-                            Passion On A <span className="text-gradient-red">Plate</span>
+                        <span className="text-red-600 text-[10px] tracking-[0.4em] uppercase font-black">Our Story</span>
+                        <h1 className="text-black mt-3" style={{ fontFamily: 'var(--font-outfit)', fontSize: 'clamp(42px, 8vw, 80px)', fontWeight: 900 }}>
+                            PASSION ON A <span className="text-red-600">PLATE</span>
                         </h1>
-                        <p className="text-white/50 mt-5 text-xl max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-black/40 mt-5 text-xl max-w-2xl mx-auto leading-relaxed font-light">
                             We are not just a restaurant. We are a love story between a chef and his shawarma.
                         </p>
                     </motion.div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
                                 />
                             </div>
                             <div className="absolute -bottom-5 -left-5 bg-red-600 text-white p-5 rounded-2xl shadow-xl">
-                                <p className="text-3xl font-bold" style={{ fontFamily: 'Oswald' }}>6+</p>
+                                <p className="text-3xl font-black" style={{ fontFamily: 'var(--font-outfit)' }}>6+</p>
                                 <p className="text-sm opacity-80">Years of Excellence</p>
                             </div>
                         </motion.div>
@@ -81,12 +81,12 @@ export default function AboutPage() {
             </section>
 
             {/* How It's Made */}
-            <section className="bg-[#0A0A0A] py-20">
+            <section className="bg-white py-20 border-t border-black/5">
                 <div className="max-w-6xl mx-auto px-6">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-center mb-16">
-                        <span className="section-tag text-red-400">🌯 The Process</span>
-                        <h2 style={{ fontFamily: 'Oswald', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 700, color: '#fff' }}>
-                            How We Make Our <span className="text-gradient-red">Shawarma</span>
+                        <span className="text-red-600 text-[10px] font-black tracking-[0.4em] uppercase mb-2 block">THE PROCESS</span>
+                        <h2 className="text-black" style={{ fontFamily: 'var(--font-outfit)', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 900 }}>
+                            HOW WE MAKE OUR <span className="text-red-600">SHAWARMA</span>
                         </h2>
                     </motion.div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -101,15 +101,14 @@ export default function AboutPage() {
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.12 }}
-                                className="text-center p-6 rounded-2xl border border-white/10 hover:border-red-500/30 transition-all"
-                                style={{ background: 'rgba(255,255,255,0.03)' }}
+                                className="text-center p-8 rounded-[40px] border border-black/5 hover:border-red-600 transition-all duration-700 bg-black/5 group"
                             >
-                                <div className="text-red-500 text-xs font-bold tracking-widest mb-4">{step}</div>
-                                <div className="w-14 h-14 bg-red-600/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                    <Icon size={26} className="text-red-500" />
+                                <div className="text-red-600 text-[10px] font-black tracking-[0.4em] mb-6">{step}</div>
+                                <div className="w-16 h-16 bg-red-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                                    <Icon size={26} className="text-red-600" />
                                 </div>
-                                <h3 className="text-white font-bold text-lg mb-2" style={{ fontFamily: 'Oswald' }}>{title}</h3>
-                                <p className="text-white/40 text-sm">{desc}</p>
+                                <h3 className="text-black font-black text-xl mb-3 tracking-tight uppercase" style={{ fontFamily: 'var(--font-outfit)' }}>{title}</h3>
+                                <p className="text-black/40 text-sm leading-relaxed">{desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -134,7 +133,7 @@ export default function AboutPage() {
                                 className="flex gap-8 mb-10"
                             >
                                 <div className="flex-shrink-0 w-32 text-right">
-                                    <span className="text-red-600 font-bold text-lg" style={{ fontFamily: 'Oswald' }}>{year}</span>
+                                    <span className="text-red-600 font-black text-lg" style={{ fontFamily: 'var(--font-outfit)' }}>{year}</span>
                                 </div>
                                 <div className="relative">
                                     <div className="absolute -left-[25px] top-1.5 w-4 h-4 rounded-full bg-red-600 border-4 border-white shadow" />
@@ -148,11 +147,11 @@ export default function AboutPage() {
             </section>
 
             {/* Hygiene Standards */}
-            <section className="bg-[#0A0A0A] py-16">
+            <section className="bg-white py-20 border-t border-black/5">
                 <div className="max-w-6xl mx-auto px-6">
-                    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-center mb-12">
-                        <h2 style={{ fontFamily: 'Oswald', fontSize: '42px', fontWeight: 700, color: '#fff' }}>
-                            Our <span className="text-gradient-red">Hygiene Standards</span>
+                    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-center mb-16">
+                        <h2 className="text-black" style={{ fontFamily: 'var(--font-outfit)', fontSize: '52px', fontWeight: 900 }}>
+                            OUR <span className="text-red-600">STANDARDS</span>
                         </h2>
                     </motion.div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -167,12 +166,11 @@ export default function AboutPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
-                                className="text-center p-5 rounded-2xl border border-white/10 hover:border-red-500/30 transition-all"
-                                style={{ background: 'rgba(255,255,255,0.03)' }}
+                                className="text-center p-8 rounded-[30px] border border-black/5 hover:border-red-600 transition-all bg-black/5 group"
                             >
-                                <Icon size={28} className="text-red-500 mx-auto mb-3" />
-                                <p className="text-white font-semibold text-sm mb-1">{label}</p>
-                                <p className="text-white/40 text-xs">{desc}</p>
+                                <Icon size={28} className="text-red-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                                <p className="text-black font-black text-xs uppercase tracking-widest mb-2">{label}</p>
+                                <p className="text-black/30 text-[10px] font-bold uppercase tracking-tight">{desc}</p>
                             </motion.div>
                         ))}
                     </div>

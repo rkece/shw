@@ -74,7 +74,7 @@ export default function CheckoutPage() {
 
     if (success) {
         return (
-            <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-4">
+            <div className="min-h-screen bg-white flex items-center justify-center px-4">
                 <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -88,9 +88,9 @@ export default function CheckoutPage() {
                     >
                         <CheckCircle size={48} className="text-green-400" />
                     </motion.div>
-                    <h1 className="text-white text-4xl font-bold mb-3" style={{ fontFamily: 'Oswald' }}>Order Placed! 🎉</h1>
-                    <p className="text-white/60 mb-2">Order ID: <span className="text-red-400 font-mono font-bold">{orderId}</span></p>
-                    <p className="text-white/50 text-sm mb-8">
+                    <h1 className="text-black text-4xl font-black mb-3 uppercase tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>Order Placed! 🎉</h1>
+                    <p className="text-black/40 mb-2 font-medium">Order ID: <span className="text-red-600 font-mono font-bold">{orderId}</span></p>
+                    <p className="text-black/30 text-[10px] font-black uppercase tracking-widest mt-4">
                         Our team will confirm your order shortly.<br />
                         You can track your order in My Orders.
                     </p>
@@ -101,7 +101,7 @@ export default function CheckoutPage() {
                             </motion.button>
                         </Link>
                         <Link href="/menu">
-                            <motion.button whileHover={{ scale: 1.05 }} className="border border-white/20 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/5">
+                            <motion.button whileHover={{ scale: 1.05 }} className="border border-black/10 text-black px-6 py-3 rounded-full font-bold text-xs tracking-widest hover:bg-black/5">
                                 Order More
                             </motion.button>
                         </Link>
@@ -120,7 +120,7 @@ export default function CheckoutPage() {
                         <Link href="/menu" className="text-gray-500 hover:text-gray-700">
                             <ArrowLeft size={20} />
                         </Link>
-                        <h1 className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Oswald' }}>Checkout</h1>
+                        <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>Checkout</h1>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
