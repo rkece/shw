@@ -8,7 +8,8 @@
 
 :root {
   --primary: #CC1A1A;
-  --bg-dark: #0A0A0A;
+  --bg-dark: #FFFFFF;
+  --text-dark: #0A0A0A;
 }
 
 /* ===== AWWWARDS LEVEL STYLES ===== */
@@ -31,7 +32,7 @@ html.lenis {
 
 body {
   background-color: var(--bg-dark);
-  color: white;
+  color: var(--text-dark);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -49,10 +50,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
-  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, transparent 100%);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
   z-index: 2000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(204, 26, 26, 0.1);
 }
 
 .nav-logo-container {

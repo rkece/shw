@@ -45,9 +45,9 @@ export default function CustomCursor() {
                 className="fixed top-0 left-0 w-16 h-16 border border-red-600/30 rounded-full pointer-events-none z-[10000] hidden md:block flex items-center justify-center overflow-hidden"
                 style={{ x: smoothX, y: smoothY, translateX: '-50%', translateY: '-50%' }}
                 animate={{
-                    scale: isPointer ? 3.5 : 1,
-                    backgroundColor: isPointer ? 'rgba(204, 26, 26, 0.1)' : 'rgba(204, 26, 26, 0)',
-                    borderColor: isPointer ? 'rgba(204, 26, 26, 0.5)' : 'rgba(204, 26, 26, 0.2)',
+                    scale: isPointer ? 1.8 : 1,
+                    backgroundColor: isPointer ? 'rgba(204, 26, 26, 0.05)' : 'rgba(204, 26, 26, 0)',
+                    borderColor: isPointer ? 'rgba(204, 26, 26, 0.4)' : 'rgba(204, 26, 26, 0.2)',
                 }}
             >
                 {cursorText && (
