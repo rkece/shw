@@ -2,11 +2,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, X, ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import CartDrawer from '@/components/CartDrawer';
 import FoodCard from '@/components/FoodCard';
 import Footer from '@/components/Footer';
 import { getMenuItems } from '@/lib/api';
+import toast from 'react-hot-toast';
 
 const categories = [
     { id: 'all', label: 'ALL' },
@@ -18,12 +20,12 @@ const categories = [
 
 function SkeletonCard() {
     return (
-        <div className="rounded-3xl overflow-hidden bg-white/5 border border-white/5 h-[400px] animate-pulse">
-            <div className="h-52 bg-white/5" />
+        <div className="rounded-3xl overflow-hidden bg-black/5 border border-black/5 h-[400px] animate-pulse">
+            <div className="h-52 bg-black/5" />
             <div className="p-6 space-y-4">
-                <div className="h-4 bg-white/5 rounded w-1/2 mx-auto" />
-                <div className="h-8 bg-white/5 rounded w-3/4 mx-auto" />
-                <div className="h-10 bg-white/5 rounded-full w-full mt-8" />
+                <div className="h-4 bg-black/10 rounded w-1/2 mx-auto" />
+                <div className="h-8 bg-black/10 rounded w-3/4 mx-auto" />
+                <div className="h-10 bg-black/10 rounded-full w-full mt-8" />
             </div>
         </div>
     );
@@ -42,9 +44,14 @@ export default function MenuPage() {
             if (category !== 'all') params.category = category;
             if (search) params.search = search;
             const response = await getMenuItems(params);
-            setItems(response.data.items || []);
+            if (response.data.success) {
+                setItems(response.data.items || []);
+            } else {
+                toast.error(response.data.message || 'Failed to fetch flavors');
+            }
         } catch (error) {
             console.error('Failed to fetch menu:', error);
+            toast.error('Server connection failed. Try again soon.');
         } finally {
             setLoading(false);
         }
@@ -153,4 +160,3 @@ export default function MenuPage() {
     );
 }
 
-import Image from 'next/image';
