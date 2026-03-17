@@ -42,18 +42,22 @@ body {
 /* CUSTOM NAV BAR STYLES */
 .nav-fixed-top {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 30px);
+  max-width: 1400px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   z-index: 2000;
-  border-bottom: 1px solid rgba(204, 26, 26, 0.1);
+  border-radius: 100px;
+  border: 1px solid rgba(204, 26, 26, 0.1);
+  padding: 0 20px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
 .nav-logo-container {

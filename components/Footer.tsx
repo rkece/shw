@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col items-center">
 
                 {/* Social Icons with brand-specific hover colors */}
-                <div className="flex gap-12 mb-10">
+                <div className="flex gap-8 mb-10">
                     {socials.map((social, i) => (
                         <motion.a
                             key={i}
@@ -31,7 +31,7 @@ export default function Footer() {
                             className="text-white/30 transition-all duration-300"
                             aria-label={social.label}
                         >
-                            <social.icon size={26} strokeWidth={1.5} />
+                            <social.icon size={20} strokeWidth={1.5} />
                         </motion.a>
                     ))}
                 </div>

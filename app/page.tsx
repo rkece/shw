@@ -153,13 +153,23 @@ export default function Home() {
                 - opacity-100 for maximum HD clarity
             */}
             {!showIntro && (
-              <video
-                ref={videoRef}
-                autoPlay loop muted playsInline
-                className="w-full h-full object-cover object-top opacity-100 scale-125 filter contrast-125 brightness-110"
-              >
-                <source src="/videos/intro.mp4" type="video/mp4" />
-              </video>
+              <>
+                <Image 
+                  src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=1920&q=80"
+                  alt="Background Fallback"
+                  fill
+                  className="object-cover opacity-50 brightness-[0.4]"
+                  priority
+                />
+                <video
+                  ref={videoRef}
+                  autoPlay loop muted playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover object-top opacity-100 scale-125 filter contrast-125 brightness-110 z-10"
+                >
+                  <source src="/videos/intro.mp4" type="video/mp4" />
+                </video>
+              </>
             )}
             {/* Clean subtle vignette for text legibility without blurring the video */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-[1]" />
@@ -175,12 +185,12 @@ export default function Home() {
             <div className="flex flex-col items-center mb-8 gap-0">
               <StretchText 
                 text="PREMIUM" 
-                className="text-6xl md:text-[9vw] font-black tracking-tighter text-white transition-all hover:text-red-600" 
+                className="text-5xl md:text-[8vw] font-black tracking-tighter text-white transition-all hover:text-red-600" 
                 style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.8 }}
               />
               <StretchText 
                 text="FLAVORS" 
-                className="text-6xl md:text-[9vw] font-black tracking-tighter text-red-600 italic transition-all hover:text-white mt-[-0.1em]" 
+                className="text-5xl md:text-[8vw] font-black tracking-tighter text-red-600 italic transition-all hover:text-white mt-[-0.1em]" 
                 style={{ fontFamily: 'var(--font-staatliches)', lineHeight: 0.8 }}
               />
             </div>
@@ -190,7 +200,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Magnetic>
                 <Link href="/menu">
-                  <button className="btn-premium bg-red-600 text-white px-8 py-4 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase shadow-[0_30px_60px_-15px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
+                  <button className="btn-premium bg-red-600 text-white px-6 py-3 rounded-full font-bold text-[9px] md:text-[10px] tracking-[0.4em] uppercase shadow-[0_20px_40px_-10px_rgba(204,26,26,0.3)] border border-white/10 overflow-hidden group">
                     <span className="relative z-10">EXPLORE MENU</span>
                     <motion.div className="absolute inset-0 bg-white z-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
@@ -199,7 +209,7 @@ export default function Home() {
               <Magnetic>
                 <button 
                   onClick={() => scrollToSection(5)}
-                  className="px-8 py-4 rounded-full font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
+                  className="px-6 py-3 rounded-full font-bold text-[9px] md:text-[10px] tracking-[0.4em] uppercase border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500"
                 >
                   SIGNATURES
                 </button>
@@ -250,7 +260,7 @@ export default function Home() {
             >
               VISIT OUR KITCHENS
             </motion.span>
-            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>OUR BRANCHES</h2>
+            <h2 className="text-5xl md:text-7xl font-bold mb-16 tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>OUR BRANCHES</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
               {[
                 { name: 'Kolathur', map: 'https://maps.google.com/?q=Shawarma+Inn+Kolathur' },
@@ -312,7 +322,7 @@ export default function Home() {
               >
                 CRAFTED PERFECTION
               </motion.span>
-              <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>SIGNATURES</h2>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>SIGNATURES</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
@@ -354,7 +364,7 @@ export default function Home() {
               <div className="flex gap-4 items-center justify-center text-red-500 mb-8">
                 {[1, 2, 3, 4, 5].map(i => <Star key={i} fill="currentColor" size={24} className="drop-shadow-[0_0_10px_rgba(239,68,68,0.3)]" />)}
               </div>
-              <h2 className="text-5xl md:text-9xl font-bold tracking-tighter uppercase leading-[0.9] text-black" style={{ fontFamily: 'var(--font-outfit)' }}>
+              <h2 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.9] text-black" style={{ fontFamily: 'var(--font-outfit)' }}>
                 TRUSTED BY <br /> <span className="text-red-600">THOUSANDS.</span>
               </h2>
             </div>
@@ -399,7 +409,7 @@ export default function Home() {
             >
               LOCATE US
             </motion.span>
-            <h2 className="text-5xl md:text-8xl font-bold mb-16 tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>CONTACT INFO</h2>
+            <h2 className="text-5xl md:text-7xl font-bold mb-16 tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>CONTACT INFO</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl">
               {[

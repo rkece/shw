@@ -47,7 +47,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation - Strictly Centered */}
-            <nav className="hidden lg:flex items-center gap-14 absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
                 {navLinks.map((link) => (
                     <Link
                         key={link.href}
@@ -63,73 +63,73 @@ export default function Navbar() {
             </nav>
 
             {/* Right Side Icons */}
-            <div className="flex items-center gap-8">
-                <Notifications />
+            <div className="flex items-center gap-6 lg:gap-8">
+                    <Notifications />
 
-                <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    onClick={toggleCart}
-                    className="relative text-black/40 hover:text-red-600 transition-colors"
-                >
-                    <ShoppingCart size={20} strokeWidth={1.5} />
-                    {count > 0 && (
-                        <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="absolute -top-2 -right-2 bg-red-600 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
-                        >
-                            {count}
-                        </motion.span>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        onClick={toggleCart}
+                        className="relative text-black/40 hover:text-red-600 transition-colors"
+                    >
+                        <ShoppingCart size={18} strokeWidth={2} />
+                        {count > 0 && (
+                            <motion.span
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="absolute -top-2 -right-2 bg-red-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold"
+                            >
+                                {count}
+                            </motion.span>
+                        )}
+                    </motion.button>
+
+                    {user ? (
+                        <div className="relative">
+                            <button
+                                onClick={() => setUserDropdown(!userDropdown)}
+                                className="flex items-center gap-3"
+                            >
+                                <div className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center hover:border-red-600 transition-colors">
+                                    <User size={16} className="text-black/60" />
+                                </div>
+                            </button>
+
+                            <AnimatePresence>
+                                {userDropdown && (
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                        className="absolute right-0 top-12 w-52 bg-[#111] border border-white/5 rounded-2xl overflow-hidden shadow-2xl z-[150]"
+                                    >
+                                        <div className="px-6 py-4 border-b border-white/5">
+                                            <p className="text-[10px] text-white/30 tracking-widest font-bold">SIGNED IN AS</p>
+                                            <p className="text-xs font-bold text-white mt-1 truncate">{user.email}</p>
+                                        </div>
+                                        <Link href="/my-orders" className="block px-6 py-4 text-[10px] font-bold tracking-widest text-white/60 hover:text-white hover:bg-white/5 transition-all">MY ORDERS</Link>
+                                        {user.role === 'admin' && (
+                                            <Link href="/admin" className="block px-6 py-4 text-[10px] font-bold tracking-widest text-red-500 hover:bg-red-500/5">ADMIN PANEL</Link>
+                                        )}
+                                        <button onClick={handleLogout} className="w-full text-left px-6 py-4 text-[10px] font-bold tracking-widest text-red-600 border-t border-white/5 hover:bg-red-600/5">
+                                            SIGN OUT
+                                        </button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    ) : (
+                        <Link href="/login">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                className="bg-white text-black px-7 py-3 rounded-full text-[10px] font-extrabold tracking-[0.2em] hover:bg-red-600 hover:text-white transition-all duration-300 shadow-lg border border-black/5"
+                            >
+                                SIGN IN
+                            </motion.button>
+                        </Link>
                     )}
-                </motion.button>
 
-                {user ? (
-                    <div className="relative">
-                        <button
-                            onClick={() => setUserDropdown(!userDropdown)}
-                            className="flex items-center gap-3"
-                        >
-                            <div className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center hover:border-red-600 transition-colors">
-                                <User size={16} className="text-black/60" />
-                            </div>
-                        </button>
-
-                        <AnimatePresence>
-                            {userDropdown && (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    className="absolute right-0 top-12 w-52 bg-[#111] border border-white/5 rounded-2xl overflow-hidden shadow-2xl z-[150]"
-                                >
-                                    <div className="px-6 py-4 border-b border-white/5">
-                                        <p className="text-[10px] text-white/30 tracking-widest font-bold">SIGNED IN AS</p>
-                                        <p className="text-xs font-bold text-white mt-1 truncate">{user.email}</p>
-                                    </div>
-                                    <Link href="/my-orders" className="block px-6 py-4 text-[10px] font-bold tracking-widest text-white/60 hover:text-white hover:bg-white/5 transition-all">MY ORDERS</Link>
-                                    {user.role === 'admin' && (
-                                        <Link href="/admin" className="block px-6 py-4 text-[10px] font-bold tracking-widest text-red-500 hover:bg-red-500/5">ADMIN PANEL</Link>
-                                    )}
-                                    <button onClick={handleLogout} className="w-full text-left px-6 py-4 text-[10px] font-bold tracking-widest text-red-600 border-t border-white/5 hover:bg-red-600/5">
-                                        SIGN OUT
-                                    </button>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                ) : (
-                    <Link href="/login">
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="bg-white text-black px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] hover:bg-red-600 hover:text-white transition-all duration-300 shadow-xl"
-                        >
-                            SIGN IN
-                        </motion.button>
-                    </Link>
-                )}
-
-                <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-black/60 hover:text-red-600 transition-colors">
-                    {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                    <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-black/60 hover:text-red-600 transition-colors">
+                        {mobileOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
