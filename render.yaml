@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: shawrap-backend
+    env: node
+    plan: starter # Starter plan is required for web services on Render
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # User will input this in the Render dashboard
+      - key: JWT_SECRET
+        sync: false # User will input this in the Render dashboard
+      - key: ADMIN_EMAIL
+        sync: false # User will input this in the Render dashboard
+      - key: ADMIN_PASSWORD
+        sync: false # User will input this in the Render dashboard
