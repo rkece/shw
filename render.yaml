@@ -2,7 +2,7 @@ services:
   - type: web
     name: shw1
     env: node
-    plan: starter # Starter plan is required for web services on Render
+    plan: free # Use free tier plan
     rootDir: backend
     buildCommand: npm install
     startCommand: node server.js
