@@ -65,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             </div>
                             <div>
                                 <h1 className="text-slate-900 font-bold tracking-tight text-lg leading-tight uppercase" style={{ fontFamily: 'var(--font-outfit)' }}>
-                                    SHAWARMA <span className="text-red-600">INN</span>
+                                    SHAWRAP <span className="text-red-600">INN</span>
                                 </h1>
                                 <p className="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase">Control Center</p>
                             </div>

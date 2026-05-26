@@ -49,7 +49,7 @@ export default function Footer() {
                     </div>
 
                     <p className="font-bold uppercase select-none">
-                        © 2024 Shawarma Inn • Handcrafted Traditions
+                        © 2024 Shawrap Inn • Handcrafted Traditions
                     </p>
                 </div>
             </div>

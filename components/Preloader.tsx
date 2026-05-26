@@ -42,7 +42,7 @@ export default function Preloader() {
                                     textShadow: '0 0 20px rgba(255, 0, 0, 0.6)'
                                 }}
                             >
-                                Shawarma <span className="italic">inn</span>
+                                Shawrap <span className="italic">inn</span>
                             </h1>
                         </motion.div>
 

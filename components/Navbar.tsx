@@ -41,7 +41,7 @@ export default function Navbar() {
                     <Image src="/logo.png" alt="S" fill className="object-contain" />
                 </motion.div>
                 <div className="flex flex-col ml-2">
-                    <span className="text-[10px] md:text-xs text-red-600 tracking-[0.4em] font-black uppercase leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>SHAWARMA INN</span>
+                    <span className="text-[10px] md:text-xs text-red-600 tracking-[0.4em] font-black uppercase leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>SHAWRAP INN</span>
                     <span className="text-[8px] text-black/40 tracking-[0.2em] uppercase font-bold mt-1">SINCE 1998</span>
                 </div>
             </Link>

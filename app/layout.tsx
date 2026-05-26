@@ -16,7 +16,7 @@ const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-
 const staatliches = Staatliches({ subsets: ['latin'], weight: '400', variable: '--font-staatliches' });
 
 export const metadata: Metadata = {
-  title: 'Shawarma Inn | Authentic Middle Eastern Craft',
+  title: 'Shawrap Inn | Authentic Middle Eastern Craft',
   description: 'Experience the art of traditional shawarma in Chennai. Awwwards level interactive culinary journey.',
 };
 

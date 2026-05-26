@@ -51,7 +51,7 @@ export default function AboutPage() {
                             <span className="section-tag">Who We Are</span>
                             <h2 className="section-title mt-1 mb-6">A Family Recipe,<br /><span>A City's Favourite</span></h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                                Shawarma Inn was born out of a simple passion — bringing authentic Middle Eastern flavors to the streets of North Chennai. What started as a humble street-side stall in Thiruvottiyur in 2018 has now grown into a beloved chain with 4 outlets.
+                                Shawrap Inn was born out of a simple passion — bringing authentic Middle Eastern flavors to the streets of North Chennai. What started as a humble street-side stall in Thiruvottiyur in 2018 has now grown into a beloved chain with 4 outlets.
                             </p>
                             <p className="text-gray-500 leading-relaxed">
                                 Every shawarma we make carries the same love and precision as that very first one. Our secret garlic sauce, handpicked spice blend, and fresh pita bread have made us a household name across the city.

@@ -91,7 +91,7 @@ const useStore = create<AppState>()(
             cartCount: () => get().cart.reduce((sum, item) => sum + item.quantity, 0),
         }),
         {
-            name: 'shawarma-inn-store',
+            name: 'shawrap-inn-store',
             partialize: (state) => ({ cart: state.cart, user: state.user, token: state.token }),
         }
     )

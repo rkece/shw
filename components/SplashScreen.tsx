@@ -32,7 +32,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     >
                         <Image
                             src="/logo.png"
-                            alt="Shawarma Inn Logo"
+                            alt="Shawrap Inn Logo"
                             fill
                             className="object-contain p-4"
                             priority
@@ -48,7 +48,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                     >
                         <div className="flex flex-col items-center">
                             <StretchText 
-                                text="SHAWARMA" 
+                                text="SHAWRAP" 
                                 className="text-white text-5xl md:text-7xl font-black uppercase"
                                 style={{ fontFamily: 'var(--font-bebas)', lineHeight: 0.8 }}
                             />

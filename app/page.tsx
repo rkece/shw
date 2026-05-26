@@ -181,7 +181,7 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             className="relative z-[20] text-center px-6"
           >
-            <span className="text-red-600 font-bold tracking-[0.8em] text-[10px] md:text-[11px] uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWARMA INN</span>
+            <span className="text-red-600 font-bold tracking-[0.8em] text-[10px] md:text-[11px] uppercase block mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-syncopate)' }}>SHAWRAP INN</span>
             <div className="flex flex-col items-center mb-8 gap-0">
               <StretchText 
                 text="PREMIUM" 
@@ -414,7 +414,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl">
               {[
                 { icon: Phone, title: "HOTLINE", detail: "+91 98765 43210", action: "tel:+919876543210" },
-                { icon: Mail, title: "EMAIL US", detail: "HELLO@SHAWARMAINN.COM", action: "mailto:hello@shawarmainn.com" },
+                { icon: Mail, title: "EMAIL US", detail: "HELLO@SHAWRAPINN.COM", action: "mailto:hello@shawrapinn.com" },
                 { icon: MapPin, title: "MAIN OFFICE", detail: "CHENNAI, TAMIL NADU", action: "#" }
               ].map((item, i) => (
                 <Magnetic key={i}>
