@@ -268,7 +268,7 @@ export default function Home() {
                 { name: 'Kolathur', map: 'https://maps.google.com/?q=Shawrap+Inn+Kolathur' },
                 { name: 'Anna Nagar', map: 'https://maps.google.com/?q=Shawrap+Inn+Anna+Nagar' },
                 { name: 'Doveton', map: 'https://maps.google.com/?q=Shawrap+Inn+Doveton' },
-                { name: 'Thirumangalam', map: 'https://maps.google.com/?q=Shawrap+Inn+Thirumangalam' }
+                { name: 'Ambattur', map: 'https://maps.google.com/?q=Shawrap+Inn+Ambattur' }
               ].map((loc, i) => (
                 <Magnetic key={i}>
                   <a href={loc.map} target="_blank" rel="noopener noreferrer">
