@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, X, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
-import CartDrawer from '@/components/CartDrawer';
 import FoodCard from '@/components/FoodCard';
 import Footer from '@/components/Footer';
 import { getMenuItems } from '@/lib/api';
@@ -69,7 +68,6 @@ export default function MenuPage() {
     return (
         <div className="bg-white min-h-screen text-black">
             <Navbar />
-            <CartDrawer />
 
             {/* Premium Header */}
             <section className="relative pt-40 pb-24 border-b border-white/5 overflow-hidden">

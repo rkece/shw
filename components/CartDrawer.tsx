@@ -82,9 +82,10 @@ export default function CartDrawer() {
                                                 <div className="flex items-center gap-2 mt-2">
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                        className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 text-white flex items-center justify-center transition-colors"
+                                                        className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 text-white flex items-center justify-center transition-all"
+                                                        title={item.quantity === 1 ? "Remove item" : "Decrease quantity"}
                                                     >
-                                                        <Minus size={12} />
+                                                        {item.quantity === 1 ? <Trash2 size={10} className="text-red-400" /> : <Minus size={12} />}
                                                     </button>
                                                     <span className="text-white text-sm font-bold w-5 text-center">{item.quantity}</span>
                                                     <button

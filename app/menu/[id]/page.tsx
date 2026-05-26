@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
-import CartDrawer from '@/components/CartDrawer';
 import { getMenuItems } from '@/lib/api';
 import useStore from '@/lib/store';
 import toast from 'react-hot-toast';
@@ -59,7 +58,6 @@ export default function MenuItemDetail() {
     return (
         <>
             <Navbar />
-            <CartDrawer />
 
             <main className="bg-white min-h-screen pt-24 pb-20">
                 <div className="max-w-7xl mx-auto px-6">

@@ -66,22 +66,23 @@ export default function Navbar() {
             <div className="flex items-center gap-6 lg:gap-8">
                     <Notifications />
 
-                    <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        onClick={toggleCart}
-                        className="relative text-black/40 hover:text-red-600 transition-colors"
-                    >
-                        <ShoppingCart size={18} strokeWidth={2} />
-                        {count > 0 && (
-                            <motion.span
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                className="absolute -top-2 -right-2 bg-red-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold"
-                            >
-                                {count}
-                            </motion.span>
-                        )}
-                    </motion.button>
+                    <Link href="/cart">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            className="relative text-black/40 hover:text-red-600 transition-colors"
+                        >
+                            <ShoppingCart size={18} strokeWidth={2} />
+                            {count > 0 && (
+                                <motion.span
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    className="absolute -top-2 -right-2 bg-red-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold"
+                                >
+                                    {count}
+                                </motion.span>
+                            )}
+                        </motion.button>
+                    </Link>
 
                     {user ? (
                         <div className="relative">

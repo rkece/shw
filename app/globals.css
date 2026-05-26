@@ -115,3 +115,27 @@ video {
 .parallax-bg {
   will-change: transform;
 }
+
+/* ===== CART DRAWER & OVERLAY ===== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9998;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: #0A0A0A;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}

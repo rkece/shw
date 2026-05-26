@@ -55,7 +55,7 @@ app.get('/api/health', (req, res) => {
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: 'shawarma_inn_db',
+            dbName: 'shawrapinn',
             family: 4
         });
         console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
