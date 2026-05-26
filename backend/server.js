@@ -5,7 +5,7 @@ const path = require('path');
 const dns = require('dns');
 require('dotenv').config();
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && !process.env.RENDER) {
     try {
         dns.setServers(['8.8.8.8', '8.8.4.4']);
     } catch (err) {
