@@ -261,20 +261,20 @@ export default function Home() {
               VISIT OUR KITCHENS
             </motion.span>
             <h2 className="text-5xl md:text-7xl font-bold mb-16 tracking-tighter text-black" style={{ fontFamily: 'var(--font-outfit)' }}>OUR BRANCHES</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
               {[
-                { name: 'Kolathur', map: 'https://maps.google.com/?q=Shawarma+Inn+Kolathur' },
-                { name: 'Madhavaram', map: 'https://maps.google.com/?q=Shawarma+Inn+Madhavaram' },
-                { name: 'Thirumullaivoyal', map: 'https://maps.google.com/?q=Shawarma+Inn+Thirumullaivoyal' },
-                { name: 'Mathur', map: 'https://maps.google.com/?q=Shawarma+Inn+Mathur' },
-                { name: 'KKD Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+KKD+Nagar' },
-                { name: 'Anna Nagar', map: 'https://maps.google.com/?q=Shawarma+Inn+Anna+Nagar' }
+                { name: 'Madhavaram', map: 'https://maps.google.com/?q=Shawrap+Inn+Madhavaram' },
+                { name: 'Redhills', map: 'https://maps.google.com/?q=Shawrap+Inn+Redhills' },
+                { name: 'Kolathur', map: 'https://maps.google.com/?q=Shawrap+Inn+Kolathur' },
+                { name: 'Anna Nagar', map: 'https://maps.google.com/?q=Shawrap+Inn+Anna+Nagar' },
+                { name: 'Doveton', map: 'https://maps.google.com/?q=Shawrap+Inn+Doveton' },
+                { name: 'Thirumangalam', map: 'https://maps.google.com/?q=Shawrap+Inn+Thirumangalam' }
               ].map((loc, i) => (
                 <Magnetic key={i}>
                   <a href={loc.map} target="_blank" rel="noopener noreferrer">
                     <Tilt className="p-6 md:p-8 border border-black/5 bg-black/5 rounded-[30px] hover:bg-black hover:text-white transition-all duration-500 group">
                       <MapPin className="mx-auto mb-4 text-red-600 group-hover:scale-110 transition-transform" size={24} />
-                       <h3 className="text-sm md:text-lg font-black uppercase tracking-tight line-clamp-1">{loc.name}</h3>
+                       <h3 className="text-sm md:text-base font-black uppercase tracking-tight line-clamp-1">{loc.name}</h3>
                       <p className="mt-2 text-[10px] tracking-[0.2em] opacity-60 uppercase transition-opacity group-hover:opacity-100 font-bold">Open 24/7</p>
                     </Tilt>
                   </a>
