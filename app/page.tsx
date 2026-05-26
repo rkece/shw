@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ArrowRight, MapPin, Phone, Mail, Users, Star, Flame, Clock, CheckCircle2, ChevronDown, MessageSquare } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import CartDrawer from '@/components/CartDrawer';
 import SplashScreen from '@/components/SplashScreen';
 import Footer from '@/components/Footer';
 import Magnetic from '@/components/Magnetic';
@@ -127,6 +128,7 @@ export default function Home() {
           className="relative z-[200]"
         >
           <Navbar />
+          <CartDrawer />
           <SoundToggle isMuted={isMuted} onToggle={toggleSound} />
         </motion.div>
       )}

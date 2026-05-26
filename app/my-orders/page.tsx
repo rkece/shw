@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Package, Clock, CheckCircle, Truck, MapPin, ChevronRight, ShoppingBag } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import CartDrawer from '@/components/CartDrawer';
 import { getMyOrders } from '@/lib/api';
 import useStore from '@/lib/store';
 import { useRouter } from 'next/navigation';
@@ -70,6 +71,7 @@ export default function MyOrdersPage() {
     return (
         <>
             <Navbar />
+            <CartDrawer />
             <div className="min-h-screen bg-gray-50 pt-24 pb-12">
                 <div className="max-w-3xl mx-auto px-4">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'Oswald' }}>My Orders</h1>

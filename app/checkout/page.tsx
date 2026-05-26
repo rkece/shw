@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
+import CartDrawer from '@/components/CartDrawer';
 import useStore from '@/lib/store';
 import { createOrder } from '@/lib/api';
 import toast from 'react-hot-toast';
@@ -114,6 +115,7 @@ export default function CheckoutPage() {
     return (
         <>
             <Navbar />
+            <CartDrawer />
             <div className="min-h-screen bg-gray-50 pt-24 pb-12">
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="flex items-center gap-3 mb-8">
