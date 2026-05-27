@@ -22,6 +22,7 @@ app.use(cors({
         'http://localhost:3000',
         'http://127.0.0.1:3000',
         'https://shawrapinn.vercel.app',
+        'https://shawarmainn.vercel.app',
         'https://shw-iota.vercel.app'
     ],
     credentials: true,
