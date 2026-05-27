@@ -36,15 +36,42 @@ export default function MenuPage() {
     const [activeCategory, setActiveCategory] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
 
+    // SWR Cache mount hook: instantly render menu from cache if available
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const cached = localStorage.getItem('shawrap-menu-cache');
+            if (cached) {
+                try {
+                    const parsed = JSON.parse(cached);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        setItems(parsed);
+                        setLoading(false);
+                    }
+                } catch (e) {
+                    console.error('Failed to parse menu cache:', e);
+                }
+            }
+        }
+    }, []);
+
     const fetchItems = async (category: string, search: string) => {
-        setLoading(true);
+        // Only trigger full loading spinner if we have 0 items (no cache or first visit)
+        if (items.length === 0) {
+            setLoading(true);
+        }
         try {
             const params: any = {};
             if (category !== 'all') params.category = category;
             if (search) params.search = search;
             const response = await getMenuItems(params);
             if (response.data.success) {
-                setItems(response.data.items || []);
+                const fetched = response.data.items || [];
+                setItems(fetched);
+                
+                // Cache the full menu locally (when no specific filter/search is active)
+                if (category === 'all' && !search && typeof window !== 'undefined') {
+                    localStorage.setItem('shawrap-menu-cache', JSON.stringify(fetched));
+                }
             } else {
                 toast.error(response.data.message || 'Failed to fetch flavors');
             }

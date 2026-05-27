@@ -36,7 +36,12 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  cursor: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
 }
 
 /* CUSTOM NAV BAR STYLES */

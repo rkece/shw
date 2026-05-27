@@ -40,6 +40,11 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
+    // Only run GSAP slideshow layout and pinning on desktop screens (>= 1024px)
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray('.slide-panel');
 
@@ -141,10 +146,10 @@ export default function Home() {
         ))}
       </div>
 
-      <div ref={containerRef} className="relative w-full h-screen overflow-hidden">
+      <div ref={containerRef} className="relative w-full lg:h-screen overflow-x-hidden lg:overflow-hidden flex flex-col lg:block h-auto">
 
         {/* SECTION 1: HERO - HD VIDEO NO BLUR NO CAPTION */}
-        <section className="slide-panel absolute inset-0 z-[10] flex flex-col items-center justify-center overflow-hidden">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[10] w-full min-h-screen flex flex-col items-center justify-center overflow-hidden py-16 lg:py-0">
           <div className="absolute inset-0 z-0 bg-black pointer-events-none">
             {/* 
                 "Virtual AI Eraser" Tech: 
@@ -232,7 +237,7 @@ export default function Home() {
         </section>
         
         {/* SECTION 2: MISSION */}
-        <section className="slide-panel absolute inset-0 z-[15] flex flex-col items-center justify-center bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[15] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
           <div className="max-w-4xl w-full px-6 text-center text-black">
             <motion.div
                initial={{ opacity: 0, y: 50 }}
@@ -251,7 +256,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: KITCHENS */}
-        <section className="slide-panel absolute inset-0 z-[20] flex flex-col items-center justify-center bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[20] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
           <div className="max-w-7xl w-full px-6 text-center text-black">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
@@ -285,7 +290,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: GALLERY */}
-        <section className="slide-panel absolute inset-0 z-[25] flex flex-col items-center justify-center bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[25] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
           <div className="max-w-7xl w-full px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {[
@@ -307,11 +312,11 @@ export default function Home() {
         </section>
 
         {/* SECTION 5: ANATOMY */}
-        <section className="slide-panel absolute inset-0 z-[30] flex flex-col items-center justify-center bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[30] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
           <AnatomySection progress={anatomyProgress} />
         </section>
         {/* SECTION 6: SIGNATURES */}
-        <section id="signatures" className="slide-panel absolute inset-0 z-[35] flex flex-col items-center justify-center bg-white">
+        <section id="signatures" className="slide-panel lg:absolute lg:inset-0 relative z-[35] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
 
           <div className="max-w-7xl w-full px-6">
             <div className="text-center mb-16">
@@ -358,7 +363,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 7: COMMUNITY */}
-        <section className="slide-panel absolute inset-0 z-[40] flex flex-col items-center justify-center bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[40] w-full min-h-screen flex flex-col items-center justify-center bg-white py-20 lg:py-0">
           <div className="text-center px-6 max-w-7xl w-full">
             <div className="mb-20">
               <div className="flex gap-4 items-center justify-center text-red-500 mb-8">
@@ -400,7 +405,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 8: CONTACT */}
-        <section className="slide-panel absolute inset-0 z-[45] flex flex-col bg-white">
+        <section className="slide-panel lg:absolute lg:inset-0 relative z-[45] w-full min-h-screen flex flex-col justify-between bg-white py-20 lg:py-0">
           <div className="flex-1 flex flex-col items-center justify-center px-6 py-20">
             <motion.span 
               initial={{ opacity: 0 }}
@@ -434,7 +439,7 @@ export default function Home() {
 
       </div>
 
-      <div style={{ height: `${(SECTIONS.length - 1) * 100}vh` }} />
+      <div className="hidden lg:block" style={{ height: `${(SECTIONS.length - 1) * 100}vh` }} />
     </div>
   );
 }
