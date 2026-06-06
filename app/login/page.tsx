@@ -1,12 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, ArrowRight, ChevronLeft } from 'lucide-react';
 import useStore from '@/lib/store';
-import { login } from '@/lib/api';
+import { login, googleLogin } from '@/lib/api';
 import toast from 'react-hot-toast';
 
 export default function LoginPage() {
@@ -15,6 +15,50 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(false);
     const { setUser } = useStore();
     const router = useRouter();
+
+    useEffect(() => {
+        // Load the Google One Tap script
+        const script = document.createElement('script');
+        script.src = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+            const google = (window as any).google;
+            if (google) {
+                google.accounts.id.initialize({
+                    client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '1027170138981-dcd16b8v5lq5b78f407768jqd8r6a17b.apps.googleusercontent.com',
+                    callback: handleGoogleLoginSuccess,
+                });
+
+                google.accounts.id.renderButton(
+                    document.getElementById('google-signin-btn'),
+                    { theme: 'outline', size: 'large', width: '100%', shape: 'pill' }
+                );
+            }
+        };
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    const handleGoogleLoginSuccess = async (response: any) => {
+        setLoading(true);
+        try {
+            const { data } = await googleLogin({ credential: response.credential });
+            setUser(data.user, data.token);
+            toast.success(`Welcome back, ${data.user.name}!`);
+            router.push(data.user.role === 'admin' ? '/admin' : '/');
+        } catch (error: any) {
+            const message = error.response?.data?.message || error.message || 'Google authentication failed';
+            toast.error(message);
+            console.error('Google Sign In Error:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -124,6 +168,16 @@ export default function LoginPage() {
                             )}
                         </motion.button>
                     </form>
+
+                    <div className="relative flex py-6 items-center">
+                        <div className="flex-grow border-t border-black/10"></div>
+                        <span className="flex-shrink mx-4 text-black/30 text-[10px] font-black uppercase tracking-widest">OR</span>
+                        <div className="flex-grow border-t border-black/10"></div>
+                    </div>
+
+                    <div className="w-full flex justify-center">
+                        <div id="google-signin-btn" className="w-full min-h-[44px] flex justify-center" />
+                    </div>
 
                     <p className="text-center mt-12 text-black/30 text-sm font-bold uppercase tracking-widest">
                         Don't have an account? <Link href="/signup" className="text-red-600 hover:underline">REGISTER NOW</Link>
