@@ -34,7 +34,14 @@ export default function LoginPage() {
 
                 google.accounts.id.renderButton(
                     document.getElementById('google-signin-btn'),
-                    { theme: 'outline', size: 'large', width: '100%', shape: 'pill' }
+                    { 
+                        theme: 'outline', 
+                        size: 'large', 
+                        width: '320', 
+                        shape: 'rectangular',
+                        text: 'signin_with',
+                        logo_alignment: 'left'
+                    }
                 );
             }
         };
